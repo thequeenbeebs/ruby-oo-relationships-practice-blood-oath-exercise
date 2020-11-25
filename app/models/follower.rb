@@ -20,7 +20,11 @@ class Follower
     end
 
     def join_cult(cult)
-        BloodOath.new(self, cult)
+        if cult.minimum_age != nil && self.age >= cult.minimum_age
+            BloodOath.new(self, cult)
+        else
+            "You are not old enough to join this cult."
+        end   
     end
 
     def self.all
@@ -53,6 +57,18 @@ class Follower
             self.all.delete(self.most_active)
         }
         top_ten
+    end
+
+    def fellow_cult_members
+        fellows = []
+        self.cults.map do |cult|
+            cult.followers.each do |follower|
+                fellows << follower
+            end
+        end
+        fellows = fellows.uniq
+        fellows.delete(self)
+        fellows
     end
 
 end

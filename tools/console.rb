@@ -40,6 +40,7 @@ ted.age = 50
 jim.age = 75
 charles.age = 30
 david.age = 40
+chuck.age = 16
 
 heaven.location = "California"
 manson.location = "California"
@@ -62,6 +63,8 @@ bo2.initiation_date = "1950-10-31"
 bo3.initiation_date = "1950-08-15"
 bo4.initiation_date = "1950-08-14"
 bo5.initiation_date = "2020-11-23"
+
+branch.minimum_age = 18
 
 binding.pry
 

@@ -1,6 +1,6 @@
 class Cult
     attr_reader :name
-    attr_accessor :location, :founding_year, :slogan 
+    attr_accessor :location, :founding_year, :slogan, :minimum_age
 
     @@all = []
 
@@ -20,7 +20,11 @@ class Cult
     end
 
     def recruit_follower(follower)
-        BloodOath.new(follower, self)
+        if self.minimum_age != nil && follower.age >= self.minimum_age
+            BloodOath.new(follower, self)
+        else
+            "You are not old enough to join this cult."
+        end
     end
 
     def cult_population
